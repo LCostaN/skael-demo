@@ -11,15 +11,11 @@ function* handleGetBookList(action) {
   try {
     yield put({ type: actionLoading.type });
     const { payload } = action;
-    const { data, status } = yield call(getBooks, payload);
-    if (status === 200) {
-      yield put({
-        type: actionBooks.type,
-        payload: { ...data, page: payload },
-      });
-    } else {
-      console.log(data);
-    }
+    const response = yield call(getBooks, payload);
+    yield put({
+      type: actionBooks.type,
+      payload: { ...response, page: payload },
+    });
   } catch (e) {
     console.log(e);
   } finally {

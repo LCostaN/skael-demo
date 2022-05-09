@@ -31,7 +31,6 @@ export default function Home() {
     if (newWindow) newWindow.opener = null;
   };
 
-  console.log(nextUrl);
   return (
     <div className="container d-flex flex-column pb-5 vh-100">
       <h1 className="my-4 pt-5">Books</h1>
